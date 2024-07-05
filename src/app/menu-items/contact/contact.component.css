@@ -1,0 +1,29 @@
+
+
+/* De schimbat sa fie facuta asta intr-un tabel*/
+.contact-info {
+    background-color: wheat; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 20px; 
+    width: 450px; 
+    font-family: 'Arial', sans-serif; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px auto; 
+}
+
+.contact-info b {
+    display: inline-block;
+    width: 170px;
+    color: #333; 
+    font-weight: bold; 
+}
+
+.contact-info i {
+    color: #555; 
+    font-style: italic; 
+}
+
+.contact-info br {
+    margin-bottom: 10px;
+}
