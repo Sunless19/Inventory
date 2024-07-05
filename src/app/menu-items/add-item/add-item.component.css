@@ -4,21 +4,13 @@
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    border: 1px solid black;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
 
 
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
 
 .form-group input[type="text"],
 .form-group input[type="number"],
@@ -26,21 +18,18 @@
 .form-group textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #5a2525;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-.form-group textarea {
-    height: 100px;
-    resize: vertical;
-}
+
 
 .submit-btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: #009879;
-    color: white;
+    color: rgb(92, 31, 31);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -55,4 +44,9 @@ h1 {
     text-align: center;
     color: #009879;
     margin-bottom: 20px;
+}
+
+p {
+    text-align:  center;
+    margin-bottom: 20 px;
 }

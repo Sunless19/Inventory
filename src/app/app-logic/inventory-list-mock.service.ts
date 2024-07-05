@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InventoryItem } from './inventory-item';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -116,10 +117,24 @@ export class InventoryListMockService {
       deleted: true,
     },
   ];
-  constructor() { }
+  constructor() { 
+
+  }
 
   getData(): Array<InventoryItem> 
   {
     return this.inventoryData;
+  }
+
+  addItem(item:InventoryItem){
+      this.inventoryData.push(item);
+  }
+
+  getLastId():number
+  {
+
+    return Math.max.apply(Math,this.inventoryData.map(function (o){
+      return o.id;
+    }));
   }
 }

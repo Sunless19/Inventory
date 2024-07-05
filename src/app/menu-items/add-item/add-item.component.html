@@ -1,54 +1,75 @@
 <h1>Add Inventory Item</h1>
 <form [formGroup]="addItemForm" (ngSubmit)="OnSubmit()" class="inventory-form">
-    <div class="form-group">
-        <label for="itemName">Item Name:</label>
-        <input 
+    <mat-form-field class b="asd" appearance="outline">
+        <mat-label>Item Name:</mat-label>
+        <input matInput
+        placeholder="name"
         formControlName="name" 
         type="text" 
         id="itemName">
-    </div>
+        <mat-error *ngIf="hasError('name','required')">Name is required</mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="description">Description:</label>
+    <mat-form-field class a="zxc" appearance="outline">
+        <mat-label>Description:</mat-label>
         <textarea 
+        matInput
+        placeholder="Item Description"
         formControlName="description" 
-        id="description">
+        required>
         </textarea>
-    </div>
+        <mat-error *ngIf="hasError('description','required')">Description required!</mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="user">User:</label>
+    <mat-form-field>
+        <mat-label>User:</mat-label>
         <input 
+        matInput
+        placeholder="User Description"
         formControlName="user" 
         type="text" 
-        id="user">
-    </div>
+        required>
+        <mat-error *ngIf="hasError('user','required')">User required</mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="location">Location:</label>
+    <mat-form-field>
+        <mat-label>Location:</mat-label>
         <input 
+        matInput
+        placeholder="Location Description"
         formControlName="location" 
         type="text" 
-        id="location">
-    </div>
+        required>
+        <mat-error *ngIf="hasError('location','required')">Location required</mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="inventoryNumber">Inventory Number:</label>
+    <mat-form-field>
+        <mat-label>Inventory Number:</mat-label>
         <input 
+        matInput
+        placeholder="inventoryNumber Description"
         formControlName="inventoryNumber" 
         type="number" 
-        id="inventoryNumber">
-    </div>
+        required>
+        <mat-error *ngIf="hasError('inventoryNumber','required')">inventoryNumber required</mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label for="createdAt">Created at:</label>
+    <mat-form-field>
+        <mat-label for="createdAt">Created at:</mat-label>
         <input 
+        matInput
+        placeholder="createdAt description"
         formControlName="createdAt" 
-        type="date" 
-        id="createdAt">
-    </div>
-
+        type="date"
+        required>
+        <mat-error *ngIf="hasError('createdAt','required')">Created at required...</mat-error>
+    </mat-form-field>
     <button 
+    [disabled]="!addItemForm.valid"
     type="submit" 
     class="submit-btn">Submit</button>
 </form>
+
+<p>
+    Form status : {{addItemForm.status}}
+</p>
