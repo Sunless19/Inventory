@@ -11,6 +11,7 @@ export class InventoryItem {
 
     constructor(item?:Partial<InventoryItem>){
         Object.assign(this,item);
-        
     }
+
+    
 }

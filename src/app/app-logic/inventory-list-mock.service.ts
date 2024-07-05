@@ -137,4 +137,18 @@ export class InventoryListMockService {
       return o.id;
     }));
   }
+  
+  getItemId(id:number)
+  {
+    return this.inventoryData.filter((x)=>x.id==id)[0];
+  }
+
+  updateItem(updatedItem: InventoryItem) {
+    const index = this.inventoryData.findIndex(item => item.id === updatedItem.id);
+    if (index !== -1) {
+      this.inventoryData[index] = updatedItem;
+    }
+  }
+  
+
 }

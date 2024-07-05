@@ -1,6 +1,6 @@
 <h1>Add Inventory Item</h1>
 <form [formGroup]="addItemForm" (ngSubmit)="OnSubmit()" class="inventory-form">
-    <mat-form-field class b="asd" appearance="outline">
+    <mat-form-field  appearance="outline">
         <mat-label>Item Name:</mat-label>
         <input matInput
         placeholder="name"
@@ -10,14 +10,13 @@
         <mat-error *ngIf="hasError('name','required')">Name is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field class a="zxc" appearance="outline">
+    <mat-form-field  appearance="outline">
         <mat-label>Description:</mat-label>
-        <textarea 
+        <input
         matInput
         placeholder="Item Description"
         formControlName="description" 
         required>
-        </textarea>
         <mat-error *ngIf="hasError('description','required')">Description required!</mat-error>
     </mat-form-field>
 
@@ -54,6 +53,7 @@
         <mat-error *ngIf="hasError('inventoryNumber','required')">inventoryNumber required</mat-error>
     </mat-form-field>
 
+    
     <mat-form-field>
         <mat-label for="createdAt">Created at:</mat-label>
         <input 

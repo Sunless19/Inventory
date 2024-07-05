@@ -8,23 +8,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
-
-
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="date"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #5a2525;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-
-
 .submit-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -35,17 +18,14 @@
     cursor: pointer;
     font-size: 16px;
 }
-
 .submit-btn:hover {
     background-color: #007f66;
 }
-
 h1 {
     text-align: center;
     color: #009879;
     margin-bottom: 20px;
 }
-
 p {
     text-align:  center;
     margin-bottom: 20 px;
