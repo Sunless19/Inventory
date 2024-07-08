@@ -1,13 +1,24 @@
-a:link, a:visited{
-background-color: lightblue;
-color :white;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-padding: 10px;
+nav {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
 }
 
-a:hover{
-    background-color: deepskyblue;
+a:link, a:visited {
+    background-color: lightblue;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 0; /* inițial, fără colțuri rotunjite */
+    transition: border-radius 0.3s ease; /* tranziție lină pentru border-radius */
 }
 
+a:hover {
+    background-color: #87CEFA; /* o nuanță mai deschisă de albastru */
+    border-radius: 50%; /* rotunjirea completă pentru a forma un cerc */
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.7); /* umbra care se extinde */
+}

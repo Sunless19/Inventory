@@ -68,8 +68,13 @@
     [disabled]="!addItemForm.valid"
     type="submit" 
     class="submit-btn">Submit</button>
+    
 </form>
 
 <p>
     Form status : {{addItemForm.status}}
 </p>
+
+<div class="qrcode" *ngIf="itemId">
+    <qr-code [value]="item.user" size="300"></qr-code>
+</div>

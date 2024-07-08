@@ -48,6 +48,7 @@ export class AddItemComponent implements OnInit {
 
       });
   }
+
   OnSubmit() {
     if (this.itemId === 0) {
       this.item = new InventoryItem(this.addItemForm.value);
@@ -58,7 +59,7 @@ export class AddItemComponent implements OnInit {
     } else {
       this.item = this.inventoryListMockService.getItemId(this.itemId);
       Object.assign(this.item, this.addItemForm.value);
-      this.item.modifiedAt = new Date(); // Update modified date
+      this.item.modifiedAt = new Date();
       this.inventoryListMockService.updateItem(this.item);
     }
 
@@ -68,8 +69,4 @@ export class AddItemComponent implements OnInit {
   hasError=(controlName:string,errorName:string)=>{
     return this.addItemForm.controls[controlName].hasError(errorName);
   }
-
-
-
-
 }

@@ -10,10 +10,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ShowItemComponent } from './menu-items/show-item/show-item.component';
+import {QrCodeModule} from 'ng-qrcode';
+import {NgxScannerQrcodeModule} from 'ngx-scanner-qrcode';
 
 @NgModule({
   declarations: [
-    AppComponent,RoutingComponents
+    AppComponent,RoutingComponents, ShowItemComponent
   ],
   
   imports: [
@@ -25,7 +28,9 @@ import { MatInputModule } from '@angular/material/input';
     MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    NgxScannerQrcodeModule,
+    QrCodeModule
   ],
   providers: [
     provideAnimationsAsync()

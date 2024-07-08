@@ -7,6 +7,7 @@ import { InventoryComponent } from './menu-items/inventory/inventory.component';
 import { ScanComponent } from './menu-items/scan/scan.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShowItemComponent } from './menu-items/show-item/show-item.component';
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'inventory',component:InventoryComponent},
   {path:'edit/:id',component:AddItemComponent},
+  {path:'item/:id',component:ShowItemComponent},
   {path:'scan',component:ScanComponent},
 ];
 
@@ -29,5 +31,6 @@ export const RoutingComponents=[
   AddItemComponent,
   ContactComponent,
   InventoryComponent,
-  ScanComponent
+  ScanComponent,
+  ShowItemComponent
 ];

@@ -1,1 +1,11 @@
-<p>scan works!</p>
+<div class="centered">
+    <div class="camera">
+        <ngx-scanner-qrcode style="width: 400px; height: 400px;"
+            #action="scanner"
+            (event)="onEvent($event, action)"
+        ></ngx-scanner-qrcode>
+        <button class="buton" (click)="action.isStart ? action.stop() : action.start()">
+            {{ action.isStart ? "Stop Scan" : "Start Scan" }}
+        </button>
+    </div>
+</div>
