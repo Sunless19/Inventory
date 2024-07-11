@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { SelectionModel } from '@angular/cdk/collections';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -14,6 +14,10 @@ import { SelectionModel } from '@angular/cdk/collections';
   encapsulation: ViewEncapsulation.None
 })
 export class InventoryComponent implements OnInit {
+DeleteItem(itemId:number) {
+  this.inventoryListMockService.deleteItem(itemId).subscribe(data=>{console.log(data)});
+  this.router.navigate(['/inventory']);
+}
   @ViewChild(MatPaginator, { static : true}) paginator:| MatPaginator | undefined;
   inventoryItems: any = [];
   @ViewChild(MatSort,{static:true}) sort?:MatSort;
@@ -28,11 +32,12 @@ export class InventoryComponent implements OnInit {
     'createdAt',
     'modifiedAt',
     'deleted',
-    'action'
+    'action',
+    'delete'
   ];
   selection = new SelectionModel<Element>(true, []);
 
-  constructor(private inventoryListMockService: InventoryListMockService) { }
+  constructor(private inventoryListMockService: InventoryListMockService,private router: Router) { }
 
   ngOnInit(): void {
     this.inventoryListMockService.getData().subscribe(data => {
@@ -53,7 +58,6 @@ export class InventoryComponent implements OnInit {
   
   isAllSelected() {
     if(this.inventoryItems.data!=undefined){
-      
       const numSelected = this.selection.selected.length;
       const numRows = this.inventoryItems.data.length;
       return numSelected === numRows;

@@ -22,9 +22,13 @@ export class ShowItemComponent implements OnInit {
       this.activatedRoute.params.subscribe((params)=>{this.itemId=params['id'] ?? 0;});
   }
   
-  ngOnInit(): void {
-    this.item=this.inventoryListMockService.getItemId(this.itemId);
-    this.itemFound=this.item ? true : false;
+  
+ngOnInit(): void {
+  this.inventoryListMockService. getItemById(this.itemId).subscribe(
+  data=>{this.item = data; }
+  )
+  this.itemFound = this.item?
+  true : false;
   }
   
 

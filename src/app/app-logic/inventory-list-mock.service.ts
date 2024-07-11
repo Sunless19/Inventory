@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { InventoryItem } from './inventory-item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InventoryListMockService {
-  apiUrl="http://localhost:5055/api/InventoryItem";
-  private inventoryData: Array<InventoryItem> = [
+  apiUrl = "http://localhost:5055/api/InventoryItem";
+  
+  inventoryData: Array<InventoryItem> = [
     {
       id: 1001,
       name: 'PC01',
@@ -119,45 +121,45 @@ export class InventoryListMockService {
       deleted: true,
     },
   ];
-  
-  constructor(private httpClient:HttpClient) { 
 
-  }
+  constructor(private httpclient:HttpClient) {}
 
-  getData(): Observable<Array<InventoryItem>> 
-  {
+  getData():Observable< Array<InventoryItem>> {
     var inventoryList:Array<InventoryItem> = new Array;
-    return this.httpClient.get<Array<InventoryItem>>(this.apiUrl);
+    return this.httpclient.get<Array<InventoryItem>>(this.apiUrl);
+
   }
 
   addItem(item: InventoryItem): void {
     var result;
-    this.httpClient.post<InventoryItem>(this.apiUrl, item).subscribe(data => {
-        result = data;
-        console.log(result);
+    this.httpclient.post<InventoryItem>(this.apiUrl, item).subscribe(data=>{
+      result = data;
+      console.log(result);
     });
-}
-
-
-  getLastId():number
-  {
-
-    return Math.max.apply(Math,this.inventoryData.map(function (o){
-      return o.id;
-    }));
-  }
-  
-  getItemId(id:number)
-  {
-    return this.inventoryData.filter((x)=>x.id==id)[0];
   }
 
-  updateItem(updatedItem: InventoryItem) {
-    const index = this.inventoryData.findIndex(item => item.id === updatedItem.id);
-    if (index !== -1) {
-      this.inventoryData[index] = updatedItem;
-    }
+  updateItem(item: InventoryItem): void {
+    var result;
+    this.httpclient.put<InventoryItem>(this.apiUrl, item).subscribe(data=>{
+      result = data;
+      console.log(result);
+    });
   }
-  
 
+  getLastId(): number {
+    return Math.max.apply(
+      Math,
+      this.inventoryData.map(function (o) {
+        return o.id;
+      })
+    );
+  }
+  deleteItem(id:number):Observable<InventoryItem>{
+    return this.httpclient.delete<InventoryItem>(this.apiUrl+"/"+id);
+  }
+
+  getItemById(id: number):Observable<InventoryItem> {
+    return this.httpclient.get<InventoryItem>(this.apiUrl+"/getbyid/"+ id);
+    //return this.inventoryData.filter((x) => x.id == id)[0];
+  }
 }
