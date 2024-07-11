@@ -54,7 +54,7 @@ export class AddItemComponent implements OnInit {
       this.item = new InventoryItem(this.addItemForm.value);
       this.item.modifiedAt = this.item.createdAt;
       this.item.deleted = false;
-      this.item.id = this.inventoryListMockService.getLastId() + 1;
+      // this.item.id = this.inventoryListMockService.getLastId() + 1;
       this.inventoryListMockService.addItem(this.item);
     } else {
       this.item = this.inventoryListMockService.getItemId(this.itemId);

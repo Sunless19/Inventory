@@ -35,9 +35,12 @@ export class InventoryComponent implements OnInit {
   constructor(private inventoryListMockService: InventoryListMockService) { }
 
   ngOnInit(): void {
-    this.inventoryItems = new MatTableDataSource<InventoryItem>(this.inventoryListMockService.getData());
-    this.inventoryItems.paginator=this.paginator;
-    this.inventoryItems.sort=this.sort;
+    this.inventoryListMockService.getData().subscribe(data => {
+      this.inventoryItems = new MatTableDataSource(data);
+      this.inventoryItems.paginator = this.paginator;
+      this.inventoryItems.sort = this.sort;
+      console.log(this.inventoryItems);
+    });
   }
 
   masterToggle() {
@@ -49,9 +52,13 @@ export class InventoryComponent implements OnInit {
   }
   
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.inventoryItems.data.length;
-    return numSelected === numRows;
+    if(this.inventoryItems.data!=undefined){
+      
+      const numSelected = this.selection.selected.length;
+      const numRows = this.inventoryItems.data.length;
+      return numSelected === numRows;
+    }
+    else return false;
   }
   
   

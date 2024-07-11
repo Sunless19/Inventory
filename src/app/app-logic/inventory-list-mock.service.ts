@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { InventoryItem } from './inventory-item';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class InventoryListMockService {
+  apiUrl="http://localhost:5055/api/InventoryItem";
   private inventoryData: Array<InventoryItem> = [
     {
       id: 1001,
@@ -117,18 +119,25 @@ export class InventoryListMockService {
       deleted: true,
     },
   ];
-  constructor() { 
+  
+  constructor(private httpClient:HttpClient) { 
 
   }
 
-  getData(): Array<InventoryItem> 
+  getData(): Observable<Array<InventoryItem>> 
   {
-    return this.inventoryData;
+    var inventoryList:Array<InventoryItem> = new Array;
+    return this.httpClient.get<Array<InventoryItem>>(this.apiUrl);
   }
 
-  addItem(item:InventoryItem){
-      this.inventoryData.push(item);
-  }
+  addItem(item: InventoryItem): void {
+    var result;
+    this.httpClient.post<InventoryItem>(this.apiUrl, item).subscribe(data => {
+        result = data;
+        console.log(result);
+    });
+}
+
 
   getLastId():number
   {

@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ShowItemComponent } from './menu-items/show-item/show-item.component';
 import {QrCodeModule} from 'ng-qrcode';
 import {NgxScannerQrcodeModule} from 'ngx-scanner-qrcode';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {NgxScannerQrcodeModule} from 'ngx-scanner-qrcode';
     ReactiveFormsModule,
     MatInputModule,
     NgxScannerQrcodeModule,
-    QrCodeModule
+    QrCodeModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
